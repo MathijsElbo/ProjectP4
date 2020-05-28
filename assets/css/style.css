@@ -1,99 +1,68 @@
+:root {
+  --background: rgba(0, 214, 170, .85);
+}
+
 /* Navbar */
 nav {
     position: relative;
-    background-color: #0089c1;
+    background-color: var(--background);
     display: inline-block;
-    box-shadow: inset 0px 0px 5px 0px #016a85;
+    height: 8vh;
   }
   
+  nav li {
+    margin-left: 3em;
+  }
   nav ul>li>a {
-    font-size: 30px;
+    font-size: 16px;
     font-weight: 450;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
     color: #fff;
-    padding: 2vh 2vh 2vh 2vh;
     display: block;
     text-decoration: none;
+    text-transform: uppercase;
   }
   
   nav ul>li>a:hover, nav li.active>a {
-    background-color: #0077a8;
-    color: #fff;
+    color: #000;
     text-decoration: none;
     transition: all ease-in-out 0.2s;
   }
   
-  nav ul>li>a::before {
+  nav li>a {
+    opacity: 1;
     position: relative;
-  
   }
   
-  .navbar {
-    padding: 0 0 0 8vh;
+  nav li>a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
   }
   
-  .acc-link {
-    margin-right: 3vh;
-    color: #fff;
-    padding: .5vh .5vh;
-    font-size: 15px;
+  nav li>a:hover::before {
+    transform: scale(1,1);
   }
-  
-  .acc-link:hover {
-    color: #fff; 
+
+  .navbar-icon {
+    margin-left: 5em;
   }
-  
-  .upper-navbar {
-    background-color: hsl(197, 100%, 38%);
+
+  .icon {
+    width: 5vh;
+    height: 5vh;
+  }
+
+  .icon:last-of-type {
+    margin-left: 1em;
   }
 
   /* Footer  */
-.copyright-footer {
-    background-color: #0089C1;
-    box-shadow: inset 0px 0px 5px 0px #0077a8;
-    padding: .5vh;
-  }
-  
-  .copyright-text {
-    color: #fff;
-    margin: 1vh;
-  }
-  
-  footer {
-    background-color: #fff;
-    box-shadow: inset 0px 0px 5px 0px #9b9b9b;
-    text-align: left;
-    padding-top: 3.5vh;
-    z-index: 1;
-    position: relative;
-  }
-  
-  footer h5 {
-    font-weight: bold;
-    color: #0089c1;
-  }
-  
-  footer p {
-    color: #0089c1;
-  }
-  
-  footer p>a {
-    color: #0089c1 !important;
-    padding: 2vh 0;
-  }
-  
-  footer p>a:hover {
-    color: #0089c1;
-    text-decoration: underline;
-    transition: all ease-in-out 0.2s;
-  }
-  
-  footer .footer-social a {
-    font-size: 4vh;
-    color: #fff;
-    margin: 1vh;
-    padding: 1.5vh;
-  }
-  
-  footer p {
-    font-size: 18px;
-  }
