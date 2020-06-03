@@ -2,57 +2,67 @@
 if (isset($_SESSION["choosepw"]))
   switch ($_SESSION["choosepw"]) {
     case "success":
-      $pwclasses = "register-succ";
-      $choosepwmsg = "Uw wachtwoord is ingesteld. U wordt doorgestuurd naar de inlog pagina.";
+      $pwclasses = "success";
+      $msg = "Uw wachtwoord is ingesteld. U wordt doorgestuurd naar de inlog pagina.";
       unset($_SESSION["choosepw"]);
-      header("Refresh: 4; url=./index.php?content=redirect");
+      //header("Refresh: 4; url=./index.php?content=redirect");
       break;
     case "error1":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "U heeft één of beide wachtwoorden niet ingevuld.";
+      $pwclasses = "error";
+      $msg = "U heeft één of beide wachtwoorden niet ingevuld.";
       unset($_SESSION["choosepw"]);
       break;
     case "error2":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "Uw opgegeven wachtwoorden komen niet overeen.";
+      $pwclasses = "error";
+      $msg = "Uw opgegeven wachtwoorden komen niet overeen.";
       unset($_SESSION["choosepw"]);
       break;
     case "error3":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "Oeps, er is iets mis gegaan! Probeert u opnieuw. Error3";
+      $pwclasses = "error";
+      $msg = "Oeps, er is iets mis gegaan! Probeert u opnieuw. Error3";
       unset($_SESSION["choosepw"]);
       break;
     case "error4":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "Oeps, er is iets mis gegaan! Probeert u opnieuw. Error4";
+      $pwclasses = "error";
+      $msg = "Oeps, er is iets mis gegaan! Probeert u opnieuw. Error4";
       unset($_SESSION["choosepw"]);
       break;
     case "error5":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "Oeps, er is iets mis gegaan! Probeert u opnieuw. Error5";
+      $pwclasses = "error";
+      $msg = "Oeps, er is iets mis gegaan! Probeert u opnieuw. Error5";
       unset($_SESSION["choosepw"]);
       break;
   }
 ?>
-<!-- Wachtwoord kiezen -->
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <i class="fas fa-lock fa-5x"></i>
-      <p>Registratie afronden</p>
+
+<section class="container-fluid content-kiespw">
+  <div class="container">
+    <div class="row">
+      <!-- Error message display -->
+      <div class="<?php if (isset($pwclasses)) echo $pwclasses . " col-12"; ?>">
+        <?php
+          if (isset($_SESSION["choosepw"])) {
+            echo $msg;
+          }
+        ?>
+        Hi
+      </div>
+      <!-- Inlog form -->
+      <div class="col-12 col-md-11 offset-md-1">
+        <h2>Registratie afronden</h2>
+      </div>
+      <div class="col-12 col-md-4 offset-md-1">
+        <form action="./index.php?content=script-kiespwverify" method="post">
+          <div class="form-group">
+            <input class="form-control" type="text" name="username" id="email" placeholder="Gebruikersnaam">
+            <input class="form-control" type="password" name="password" id="password" placeholder="Wachtwoord" required>
+            <input class="form-control" type="password" name="checkpassword" id="checkpassword" placeholder="Herhaal wachtwoord" required>
+            <input class="btn btn-primary" type="submit" value="Wachtwoord bevestigen">
+            <input type="hidden" value="<?php if (isset($_GET["id"])) echo $_GET["id"]; ?>" name="id">
+            <input type="hidden" value="<?php if (isset($_GET["id"])) echo $_GET["pw"]; ?>" name="pw">
+          </div>
+        </form>
+      </div>
     </div>
-
-    <!-- Wachtwoordformulier -->
-    <form action="./index.php?content=script-kiespwverify" method="post" class="vlr">
-      <input type="text" id="username" class="fadeIn first " name="username" placeholder="Gebruikersnaam">
-      <input type="password" id="password" class="fadeIn second " name="password" placeholder="Wachtwoord*" required>
-      <input type="password" id="checkpassword" class="fadeIn third " name="checkpassword" placeholder="Herhaal wachtwoord*" required>
-      <div class="<?php if (isset($pwclasses)) echo $pwclasses; ?>"><?php if (isset($choosepwmsg)) echo $choosepwmsg; ?></div>
-      <input type="submit" class="fadeIn fourth" value="Wachtwoord bevestigen">
-      <input type="hidden" value="<?php if (isset($_GET["id"])) echo $_GET["id"]; ?>" name="id">
-      <input type="hidden" value="<?php if (isset($_GET["id"])) echo $_GET["pw"]; ?>" name="pw">
-    </form>
-
   </div>
-</div>
+</section>

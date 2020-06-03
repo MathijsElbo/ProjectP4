@@ -13,6 +13,8 @@ session_start(); ?>
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Style.css -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Fontawesome CSS -->
+  <script src="https://kit.fontawesome.com/a39e8ee307.js" crossorigin="anonymous"></script>
 
   <title>Postershop</title>
 </head>

@@ -7,7 +7,7 @@ $password = sanitize($_POST["password"]);
 
 if (!empty($email) && !empty($password)) {
 
-  $sql = "SELECT * FROM `pro3_users` WHERE `email` = '$email'";
+  $sql = "SELECT * FROM `pro4_users` WHERE `email` = '$email'";
 
   $result = mysqli_query($conn, $sql);
 

@@ -3,47 +3,88 @@
 if (isset($_SESSION["login"]))
   switch ($_SESSION["login"]) {
     case "success":
-      $pwclasses = "register-succ";
-      $choosepwmsg = "Uw wachtwoord is ingesteld. U wordt doorgestuurd naar de inlog pagina.";
+      $pwclasses = "success";
+      $msg = "Uw wachtwoord is ingesteld. U wordt doorgestuurd naar de inlog pagina.";
       header("Refresh: 4; url=./index.php?content=redirect");
       unset($_SESSION["login"]);
       break;
     case "error1":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "Één of meerdere vereiste gegevens zijn niet ingevuld.";
+      $pwclasses = "error";
+      $msg = "Één of meerdere vereiste gegevens zijn niet ingevuld.";
       unset($_SESSION["login"]);
       break;
     case "error2":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "Uw opgegeven email of wachtwoord is onjuist.";
+      $pwclasses = "error";
+      $msg = "Uw opgegeven email of wachtwoord is onjuist.";
       unset($_SESSION["login"]);
       break;
     case "error3":
-      $pwclasses = "register-msg";
-      $choosepwmsg = "Uw opgegevens email of wachtwoord is onjuist.";
+      $pwclasses = "error";
+      $msg = "Uw opgegevens email of wachtwoord is onjuist.";
       unset($_SESSION["login"]);
       break;
   }
+
+// Check if session variable is set.
+if (isset($_SESSION["register"])) {
+  switch ($_SESSION["register"]) {
+    case "error":
+      $msg = "Het ingevoerde e-mail adres is al in gebruik.";
+      $classes = "register-err register-msg";
+      $email = $_SESSION["email"];
+      unset($_SESSION["register"]);
+      break;
+    case "success":
+      $msg = "Er is een verificatiemail naar uw e-mail adres gestuurd.";
+      $classes = "register-succ";
+      $email = $_SESSION["email"];
+      unset($_SESSION["register"]);
+      unset($_SESSION["email"]);
+      break;
+    default:
+      header("Location: index.php?content=error404");
+      break;
+    }
+  }
 ?>
 
-<!-- Inloggen -->
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <i class="fas fa-lock fa-5x"></i>
-      <p>Inloggen</p>
-    </div>
-    <!-- Login formulier -->
-    <form action="index.php?content=script-inloggen" method="post" class="vlr">
-      <input type="text" id="login" class="fadeIn second" name="email" placeholder="E-mail of username">
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
-      <div class="fadeIn third <?php if (isset($pwclasses)) echo $pwclasses; ?>"><?php if (isset($choosepwmsg)) echo $choosepwmsg; ?></div>
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-    <!-- Link naar aanmeld pagina -->
-    <div id="formFooter">
-      <a class="underlineHover" href="index.php?content=aanmelden">Nog geen account? Meld je aan.</a>
+
+
+<section class="container-fluid content-inloggen">
+  <div class="container">
+    <div class="row">
+      <!-- Error message display -->
+      <div class="<?php if (isset($pwclasses)) echo $pwclasses . " col-12"; ?>">
+        <?php
+          if (isset($_SESSION["login"]) or isset($_SESSION["register"])) {
+            echo $msg;
+          }
+        ?>
+      </div>
+      <!-- Inlog form -->
+      <div class="col-12 col-md-11 offset-md-1">
+        <h2>Inloggen</h2>
+      </div>
+      <div class="col-12 col-md-4 offset-md-1">
+        <p>Bestaande klant:</p>
+        <form action="index.php?content=script-inloggen" method="post">
+          <div class="form-group">
+            <input class="form-control" type="text" name="email" id="email" placeholder="E-mail of username" required>
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+            <input class="btn btn-primary" type="submit" value="Log In">
+          </div>
+        </form>
+      </div>
+      <!-- Register form -->
+      <div class="col-12 col-md-4">
+        <p>Nieuw bij Webshop Posters?</p>
+        <form action="index.php?content=script-aanmelden" method="post">
+          <div class="form-group">
+            <input class="form-control" type="text" name="email" id="email" placeholder="E-mail of username" required>
+            <input class="btn btn-primary" type="submit" value="Register">
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</section>

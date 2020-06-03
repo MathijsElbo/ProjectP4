@@ -1,5 +1,9 @@
 :root {
-  --background: rgba(0, 214, 170, .85);
+  /* --background: rgba(0, 214, 170, .85); */
+  --background: #339af0;
+}
+body {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 /* Navbar */
@@ -52,17 +56,67 @@ nav {
     transform: scale(1,1);
   }
 
-  .navbar-icon {
-    margin-left: 5em;
+  .nav-icons {
+    font-size: 5vh;
+    margin-left: 5vh;
   }
 
-  .icon {
-    width: 5vh;
-    height: 5vh;
+  .nav-icons a {
+    color: #fff;
   }
 
-  .icon:last-of-type {
-    margin-left: 1em;
+  .nav-icons a:hover {
+    color: #000;
+    transition: ease-in-out 250ms;
   }
 
-  /* Footer  */
+/* Footer */
+.footer-first {
+  color: #fff;
+  background-color: var(--background);
+}
+
+.footer-second {
+  color: #000;
+  background-color: #fff;
+}
+
+.footer__help .footer__help__list {
+  padding-inline-start: 15px;
+}
+
+.footer__help .footer__help__contact {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+.footer__help a {
+  color: #fff;
+}
+
+.footer__social i {
+  margin-left: .25em;
+  color: var(--background);
+  font-size: 5vh;
+}
+
+.footer__social .btn-social {
+  margin-top: .25vh;
+  background-color: var(--background);
+  border-color: var(--background);
+}
+
+/* Display error and/or success messages */
+.error {
+  color: red;
+  border: 2px solid red;
+  border-radius: .25rem;
+}
+
+.success {
+  color: green;
+  border: 2px solid green;
+  border-radius: .25rem;
+}

@@ -12,7 +12,7 @@
     if ( !strcmp($password, $checkpassword)) {
 
       // Check met een select of het id bestaat in de database en of het gehashte password matched met het id
-      $sql = "SELECT * FROM `pro3_users` WHERE `userid` = $id;";
+      $sql = "SELECT * FROM `pro4_users` WHERE `userid` = $id;";
 
       $result = mysqli_query($conn, $sql);
 
@@ -24,7 +24,7 @@
           $salt = RandomString();
           $hashed_password = password_hash($password.$salt, PASSWORD_BCRYPT);
   
-          $sql = "UPDATE `pro3_users` 
+          $sql = "UPDATE `pro4_users` 
                   SET `password` = '$hashed_password',
                       `username` = '$username',
                       `salt` = '$salt'

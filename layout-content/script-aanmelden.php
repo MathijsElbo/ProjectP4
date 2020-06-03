@@ -8,7 +8,7 @@ $user = strstr($email, '@', true);
 if (!empty($email)) {
 
   // Maak een select-query om te controleren of het e-mailadres al bestaat.
-  $sql = "SELECT * FROM `pro3_users` WHERE `email` = '$email'";
+  $sql = "SELECT * FROM `pro4_users` WHERE `email` = '$email'";
 
   // Stuur de query af op de database
   $result = mysqli_query($conn, $sql);
@@ -18,12 +18,12 @@ if (!empty($email)) {
     // echo '<div class="alert alert-info" role="alert">Het door u ingevoerde e-mailadres is al in gebruik, kies een ander e-mailadres</div>';
     $_SESSION["register"] = "error";
     $_SESSION["email"] = $email;
-    //header("Location: index.php?content=aanmelden");
+    header("Location: index.php?content=inloggen");
   } else {
     $password = RandomString();
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO `pro3_users` (`userid`,
+    $sql = "INSERT INTO `pro4_users` (`userid`,
                                   `email`, 
                                   `password`,
                                   `username`,
@@ -42,7 +42,7 @@ if (!empty($email)) {
     $id = mysqli_insert_id($conn);
 
     if ($id) {
-      $sql = "INSERT INTO `pro3_personalinfo` (`infoid`, 
+      $sql = "INSERT INTO `pro4_personalinfo` (`infoid`, 
                                               `name`, 
                                               `infix`, 
                                               `lastname`, 
@@ -59,11 +59,11 @@ if (!empty($email)) {
     if ($createpinfo) {
       // Verstuur de email met activatielink naar de persoon die zich registreert.
       $to = $email;
-      $subject = "Activatielink Afasie.org";
+      $subject = "Activatielink Webshop Flyers";
       $message = "<!DOCTYPE html>
       <html>
         <head>
-        <title>Page Title</title>
+        <title>Webshop Flyers</title>
         <style>
         </style>
         </head>
@@ -71,7 +71,7 @@ if (!empty($email)) {
         <table align='center' border='0' cellpadding='0' cellspacing='0' width='600'>
           <tr>
             <td align='center' style='padding: 40px 0 0 0;'>
-              <img src='https://be.cleanlease.com/sites/default/files/banner-zorg.jpg' alt='Afasie Banner' width='100%' height='30%' style='display: block;' />
+              Pancake
             </td>
           </tr>
           <tr>
@@ -81,12 +81,12 @@ if (!empty($email)) {
           </tr>
           <tr>
             <td bgcolor='#ffffff' style='padding: 0 0 15px 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;'>
-            <p>U heeft zich onlangs geregistreerd voor de site www.afasie.org. Om het activatieproces te voltooien moet u op de onderstaande activatielink klikken.</p>
+            <p>U heeft zich onlangs geregistreerd voor de site www.webshopproject.org. Om het activatieproces te voltooien moet u op de onderstaande activatielink klikken.</p>
             </td>
           </tr>
           <tr>
             <td style='border-radius: 2px;' bgcolor='#0089c1'>
-              <a href='http://www.afasie.org/index.php?content=script-kiespw&id=" . $id . "&pw=" . $password_hash . "'
+              <a href='http://www.webshopproject.net/index.php?content=script-kiespw&id=" . $id . "&pw=" . $password_hash . "'
                 style='padding: 8px 12px; border: 1px solid #0089c1;border-radius: 2px;font-family: Helvetica, Arial, sans-serif;font-size: 18px; color: #ffffff;text-decoration: none;font-weight:bold;display: inline-block;'>
                 Activeer mijn account!
               </a>
@@ -100,7 +100,7 @@ if (!empty($email)) {
           <tr>
             <td style='color: #153643; padding: 20px 0 30px 0; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;'>
               <p>Met vriendelijke groet,<br>
-              Patient Vereniging Hersenletsel
+              Team Webshop Poster
               </p>
             </td>
           </tr>
@@ -109,7 +109,7 @@ if (!empty($email)) {
             <table border='0' cellpadding='0' cellspacing='0' width='100%'>
               <tr>
                 <td style='color:#000; font-family: Arial, sans-serif; font-size: 14px;'>
-                  &copy; 2020 Patienten Vereniging Hersenletsel
+                  &copy; 2020 Webshop Poster
                 </td>
                 <td>
                 <td>
@@ -138,7 +138,7 @@ if (!empty($email)) {
 
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type: text/html;charset=UTF-8" . "\r\n";
-      $headers .= "From: register@afasie.nl" . "\r\n";
+      $headers .= "From: register@webshopflyer.nl" . "\r\n";
       $headers .= "Cc: 327068@student.mboutrecht.nl;" . "\r\n";
       $headers .= "Bcc: jesse@mboutrecht.nl";
 
@@ -146,15 +146,15 @@ if (!empty($email)) {
 
       $_SESSION["register"] = "success";
       $_SESSION["email"] = $email;
-      header("Location: index.php?content=aanmelden");
+      header("Location: index.php?content=inloggen");
     } else {
       $_SESSION["register"] = "error";
       $_SESSION["email"] = $email;
-      header("Location: index.php?content=aanmelden");
+      header("Location: index.php?content=inloggen");
     }
   }
 } else {
   $_SESSION["register"] = "error";
   $_SESSION["email"] = $email;
-  header("Location: index.php?content=aanmelden");
+  header("Location: index.php?content=inloggen");
 }
