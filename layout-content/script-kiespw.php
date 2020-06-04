@@ -5,7 +5,7 @@ if (isset($_SESSION["choosepw"]))
       $pwclasses = "success";
       $msg = "Uw wachtwoord is ingesteld. U wordt doorgestuurd naar de inlog pagina.";
       unset($_SESSION["choosepw"]);
-      //header("Refresh: 4; url=./index.php?content=redirect");
+      header("Refresh: 4; url=./index.php?content=redirect");
       break;
     case "error1":
       $pwclasses = "error";
@@ -38,30 +38,31 @@ if (isset($_SESSION["choosepw"]))
 <section class="container-fluid content-kiespw">
   <div class="container">
     <div class="row">
-      <!-- Error message display -->
-      <div class="<?php if (isset($pwclasses)) echo $pwclasses . " col-12"; ?>">
-        <?php
-          if (isset($_SESSION["choosepw"])) {
-            echo $msg;
-          }
-        ?>
-        Hi
-      </div>
+
       <!-- Inlog form -->
       <div class="col-12 col-md-11 offset-md-1">
         <h2>Registratie afronden</h2>
       </div>
-      <div class="col-12 col-md-4 offset-md-1">
+      <div class="col-12 col-md-5 offset-md-1">
         <form action="./index.php?content=script-kiespwverify" method="post">
           <div class="form-group">
             <input class="form-control" type="text" name="username" id="email" placeholder="Gebruikersnaam">
             <input class="form-control" type="password" name="password" id="password" placeholder="Wachtwoord" required>
-            <input class="form-control" type="password" name="checkpassword" id="checkpassword" placeholder="Herhaal wachtwoord" required>
+            <input class="form-control" type="password" name="checkpassword" id="checkpassword"
+              placeholder="Herhaal wachtwoord" required>
             <input class="btn btn-primary" type="submit" value="Wachtwoord bevestigen">
             <input type="hidden" value="<?php if (isset($_GET["id"])) echo $_GET["id"]; ?>" name="id">
             <input type="hidden" value="<?php if (isset($_GET["id"])) echo $_GET["pw"]; ?>" name="pw">
           </div>
         </form>
+      </div>
+      <!-- Error message display -->
+      <div class="<?php if (isset($pwclasses)) echo "col-12 col-md-5 offset-md-1 display-message"; ?>">
+        <?php
+          if (isset($msg)) {
+            echo "<p class='". $pwclasses ."'>". $msg ."</p>";
+          }
+        ?>
       </div>
     </div>
   </div>

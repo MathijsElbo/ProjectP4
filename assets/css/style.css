@@ -113,10 +113,12 @@ nav {
   color: red;
   border: 2px solid red;
   border-radius: .25rem;
+  padding: 1vh;
 }
 
 .success {
   color: green;
   border: 2px solid green;
   border-radius: .25rem;
+  padding: 1vh;
 }

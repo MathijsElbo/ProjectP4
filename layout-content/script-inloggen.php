@@ -22,7 +22,8 @@ if (!empty($email) && !empty($password)) {
       $_SESSION["id"] = $record["userid"];
       $_SESSION["userrole"] = $record["userroleid"];
       $_SESSION["email"] = $record["email"];
-      header("Location: index.php?content=redirect");
+      $_SESSION["login"] = "success";
+      header("Location: index.php?content=inloggen");
     } else {
       // Password bestaat niet
       $_SESSION["login"] = "error3";

@@ -4,7 +4,7 @@ if (isset($_SESSION["login"]))
   switch ($_SESSION["login"]) {
     case "success":
       $pwclasses = "success";
-      $msg = "Uw wachtwoord is ingesteld. U wordt doorgestuurd naar de inlog pagina.";
+      $msg = "U bent succesvol ingelogd. U wordt nu doorverwezen naar de inlog pagina.";
       header("Refresh: 4; url=./index.php?content=redirect");
       unset($_SESSION["login"]);
       break;
@@ -29,20 +29,17 @@ if (isset($_SESSION["login"]))
 if (isset($_SESSION["register"])) {
   switch ($_SESSION["register"]) {
     case "error":
+      $pwclasses = "error";
       $msg = "Het ingevoerde e-mail adres is al in gebruik.";
-      $classes = "register-err register-msg";
       $email = $_SESSION["email"];
       unset($_SESSION["register"]);
       break;
     case "success":
+      $pwclasses = "success";
       $msg = "Er is een verificatiemail naar uw e-mail adres gestuurd.";
-      $classes = "register-succ";
       $email = $_SESSION["email"];
       unset($_SESSION["register"]);
       unset($_SESSION["email"]);
-      break;
-    default:
-      header("Location: index.php?content=error404");
       break;
     }
   }
@@ -54,10 +51,10 @@ if (isset($_SESSION["register"])) {
   <div class="container">
     <div class="row">
       <!-- Error message display -->
-      <div class="<?php if (isset($pwclasses)) echo $pwclasses . " col-12"; ?>">
+      <div class="<?php if (isset($pwclasses)) echo "col-12 col-md-5 offset-md-1 display-message"; ?>">
         <?php
-          if (isset($_SESSION["login"]) or isset($_SESSION["register"])) {
-            echo $msg;
+          if (isset($msg)) {
+            echo "<p class='". $pwclasses ."'>". $msg ."</p>";
           }
         ?>
       </div>
