@@ -15,6 +15,8 @@ session_start(); ?>
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- Fontawesome CSS -->
   <script src="https://kit.fontawesome.com/a39e8ee307.js" crossorigin="anonymous"></script>
+  <!-- Vue.js CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <title>Postershop</title>
 </head>
@@ -46,6 +48,8 @@ session_start(); ?>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <!-- Include app.js -->
+  <script src="./js/app.js"></script>
 </body>
 
 </html>
