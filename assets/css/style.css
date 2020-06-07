@@ -89,7 +89,7 @@ nav li>a:hover::before {
   padding: 0 .5vh;
   border-radius: .8rem;
   background-color: #f60;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 /* Footer */
