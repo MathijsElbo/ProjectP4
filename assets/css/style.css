@@ -1,9 +1,14 @@
 :root {
   /* --background: rgba(0, 214, 170, .85); */
   --background: #339af0;
+  --background-hover: #3da5fa;
 }
 body {
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+a:hover {
+  color: #000;
 }
 
 /* Navbar */
@@ -59,10 +64,12 @@ nav li>a:hover::before {
 
 .nav-icons {
   font-size: 5vh;
+  position: relative;
 }
 
 .nav-icons a {
   color: #fff;
+  padding: .5vh;
 }
 
 .nav-icons a:hover {
@@ -143,4 +150,43 @@ nav li>a:hover::before {
   border: 2px solid green;
   border-radius: .25rem;
   padding: 1vh;
+}
+
+/* Product CSS */
+.product-align-center {
+  align-items: center;
+}
+
+.product-name {
+  color: #000;
+  font-weight: 600;
+}
+
+.product-price {
+  color: red;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.product-quantity {
+  display: inline-block;
+  width: 25%;
+}
+
+.product-size {
+  list-style-type: none;
+  padding-inline-start: 0;
+  display: flex;
+  font-size: .8rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  color: #828282;
+}
+
+.product-size li:last-child {
+  margin-left: 1vh;
+}
+
+.product-size li:last-child::before {
+  content: ' | ';
 }

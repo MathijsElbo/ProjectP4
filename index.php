@@ -22,6 +22,7 @@ session_start(); ?>
 </head>
 
 <body>
+  <div id="product">
   <!-- include navbar -->
   <?php include("./layout-basic/navbar.php"); ?>
 
@@ -36,6 +37,8 @@ session_start(); ?>
 
   <!-- include footer -->
   <?php include("./layout-basic/footer.php"); ?>
+
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
