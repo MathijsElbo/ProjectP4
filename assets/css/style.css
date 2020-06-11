@@ -190,3 +190,12 @@ nav li>a:hover::before {
 .product-size li:last-child::before {
   content: ' | ';
 }
+
+/* Cart */
+.btn-order {
+  color: #fff;
+  background-color: #00b900;
+  box-shadow: inset 0 -2px 0 0 #090;
+  width: 100%;
+  padding: 1rem;
+}

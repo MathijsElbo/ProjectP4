@@ -21,16 +21,17 @@
     </ul>
   </div>
   <div class="nav-icons">
-    <a href="index.php?content=basket" ><i class="fas fa-shopping-cart" title="Mijn winkelwagen"><span
+    <a href="index.php?content=cart"><i class="fas fa-shopping-cart" title="Mijn winkelwagen"><span
           class="display-cart-amount">{{cart.length}}</span></i></a>
+
+    <a href="index.php?content=redirect"><i class="fas fa-user" title="Mijn account"></i></a>
+    <?php if (isset($_SESSION["id"])) {
+echo "<a href='index.php?content=uitloggen'><i class='fas fa-sign-out-alt'></i></a>";
+} 
+?>
     <div class="cart" :class="cartState">
       <h1>shoppingCart</h1>
     </div>
-    <a href="index.php?content=redirect"><i class="fas fa-user" title="Mijn account"></i></a>
-    <?php if (isset($_SESSION["id"])) {
-            echo "<a href='index.php?content=uitloggen'><i class='fas fa-sign-out-alt'></i></a>";
-          } 
-        ?>
   </div>
 
 </nav>
