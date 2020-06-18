@@ -15,11 +15,14 @@ session_start(); ?>
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- Fontawesome CSS -->
   <script src="https://kit.fontawesome.com/a39e8ee307.js" crossorigin="anonymous"></script>
+  <!-- Vue.js CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <title>Postershop</title>
 </head>
 
 <body>
+  <div id="product">
   <!-- include navbar -->
   <?php include("./layout-basic/navbar.php"); ?>
 
@@ -35,6 +38,8 @@ session_start(); ?>
   <!-- include footer -->
   <?php include("./layout-basic/footer.php"); ?>
 
+  </div>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -46,6 +51,8 @@ session_start(); ?>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <!-- Include app.js -->
+  <script src="./js/app.js"></script>
 </body>
 
 </html>
