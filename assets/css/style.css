@@ -70,6 +70,26 @@ nav {
     transition: ease-in-out 250ms;
   }
 
+/* Homepage */
+
+.content{
+  padding-top: 3rem;
+}
+
+.jumbotron {
+  background-color: var(--background);
+}
+
+.sshead {
+  background-color: var(--background);
+  margin-bottom: 0rem;
+}
+
+.bottom
+{
+  padding-bottom: 3rem;
+}
+
 /* Footer */
 .footer-first {
   color: #fff;
