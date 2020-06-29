@@ -99,7 +99,7 @@ nav li>a:hover::before {
   font-size: 1.3rem;
 }
 
-/* Homepage */
+/* Content */
 
 .content{
   padding-top: 3rem;
@@ -117,6 +117,11 @@ nav li>a:hover::before {
 .bottom
 {
   padding-bottom: 3rem;
+}
+
+.cardemp
+{
+  background-color: #9ec9ec;
 }
 
 /* Footer */
