@@ -2,7 +2,7 @@
 include("./php-scripts/connectDB.php");
 include("./php-scripts/functions.php");
 
-$quantity = (int) sanitize($_POST["quantity"]);
+$quantity = (int) 1;
 $productid = sanitize($_POST["productid"]);
 
 // Check if cart exists. If it exists, json_decode the cart. Else, create a new cart.
@@ -23,4 +23,9 @@ if (isset($cartArr[$productid])) {
 if (isset($cartArr)) {
   $_SESSION['cart'] = json_encode($cartArr, true);
 } 
+var_dump($cartArr);
+var_dump($_SESSION['cart']);
+
+
+var_dump(count($cartArr));
 ?>

@@ -7,4 +7,5 @@ define("DATABASENAME", "pro4");
 
 // Contact maken met MySQL-Server
 $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DATABASENAME);
+
 ?>
