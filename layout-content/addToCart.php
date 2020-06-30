@@ -23,9 +23,7 @@ if (isset($cartArr[$productid])) {
 if (isset($cartArr)) {
   $_SESSION['cart'] = json_encode($cartArr, true);
 } 
+
 var_dump($cartArr);
 var_dump($_SESSION['cart']);
-
-
-var_dump(count($cartArr));
 ?>
