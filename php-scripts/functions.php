@@ -136,6 +136,19 @@ function displayOrder($orderid, $orderstatusid, $userid) {
   echo $string;
 }
 
+function displayOrderLine($product, $quantity, $price) {
+  $totalprice = $price * $quantity;
+
+  $line = "<tr>
+  <td>$product</td>
+  <td>$quantity</td>
+  <td>€ $price</td>
+  <td>€ $totalprice</td>
+  </tr>";
+
+  echo $line;
+}
+
 // Checks cart
 function checkCart($cart) {
   if (isset($cart)) {

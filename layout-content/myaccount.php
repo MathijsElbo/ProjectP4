@@ -116,7 +116,7 @@ $fullname = $pinfo["name"] . ' ' . $pinfo["infix"] . ' ' . $pinfo["lastname"];
         <h2 class="text-center" id="bestellingen">Bestellingen</h2>
       </div>
       <div class="col-12">
-        <table class="table table-hover myacc-card tablelinks" width="100%">
+        <table class="table table-hover" width="100%">
           <thead>
             <tr>
               <th scope="col">Ordernummer</th>
