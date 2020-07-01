@@ -46,13 +46,7 @@
           <i class="fab fa-cc-paypal"></i>
           <i class="fab fa-cc-apple-pay"></i>
         </div>
-        <div class="col-12 col-md-4">
-          <h5>Ontvang gelijk onze aanbiedingen!</h5>
-          <form action="" method="post">
-            <input class="form-control" type="email" name="email" id="email" placeholder="Uw e-mail adres:">
-            <input class="form-control btn btn-social" type="submit" value="Aanmelden">
-          </form>
-        </div>
+        <div class="col-12 col-md-4"></div>
       </div>
       <hr>
       <div class="row footer__nav">
