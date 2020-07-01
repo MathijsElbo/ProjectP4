@@ -7,11 +7,7 @@ $user = strstr($email, '@', true);
 
 if (!empty($email)) {
 
-  // Maak een select-query om te controleren of het e-mailadres al bestaat.
-  $sql = "SELECT * FROM `pro4_users` WHERE `email` = '$email'";
-
-  // Stuur de query af op de database
-  $result = mysqli_query($conn, $sql);
+  $result = getSpecificInfo('pro4_users', 'email', $email);
 
   if (mysqli_num_rows($result)) {
     // Email is al in gebruik

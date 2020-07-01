@@ -16,28 +16,21 @@ include("./php-scripts/functions.php");
       </div>
     </div>
 
-    <!-- Cartlijst -->
-    <div class="container">
+    <!-- Cartlist -->
       <?php
-        if (isset($_SESSION['cart'])) {
-          $cartArr = json_decode($_SESSION['cart'], true);
-        } else {
-          $cartArr = [];
-        }
-
-        // var_dump(array_values($cartArr));
+      if (isset($_SESSION["cart"])) {
+        $cartArr = checkCart($_SESSION["cart"]);
 
         foreach ($cartArr as $id => $quantity) {
-          $result = getSpecificInfo($id);
-          
+          $result = getSpecificInfo('pro4_products','productid',$id);
           $cartInfo = mysqli_fetch_assoc($result);
-
           cartProduct($quantity, $id, $cartInfo["pname"], $cartInfo["pprice"]);
         }
-
+      } else {
+        echo "Uw winkelmandje is leeg.";
+      }
 
       ?>
-    </div>
 
   </div>
 </div>

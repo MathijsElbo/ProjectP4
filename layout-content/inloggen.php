@@ -8,6 +8,11 @@ if (isset($_SESSION["login"]))
       header("Refresh: 4; url=./index.php?content=redirect");
       unset($_SESSION["login"]);
       break;
+    case "shop":
+      $pwclasses = "success";
+      $msg = "Om uw bestelling te plaatsen moet u eerst inloggen.";
+      unset($_SESSION["login"]);
+      break;
     case "error1":
       $pwclasses = "error";
       $msg = "Één of meerdere vereiste gegevens zijn niet ingevuld.";
@@ -66,7 +71,7 @@ if (isset($_SESSION["register"])) {
         <p>Bestaande klant:</p>
         <form action="index.php?content=script-inloggen" method="post">
           <div class="form-group">
-            <input class="form-control" type="text" name="email" id="email" placeholder="E-mail of username" required>
+            <input class="form-control" type="email" name="email" id="email" placeholder="E-mail" required>
             <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
             <input class="btn btn-primary" type="submit" value="Log In">
           </div>
@@ -77,7 +82,7 @@ if (isset($_SESSION["register"])) {
         <p>Nieuw bij Webshop Posters?</p>
         <form action="index.php?content=script-aanmelden" method="post">
           <div class="form-group">
-            <input class="form-control" type="text" name="email" id="email" placeholder="E-mail of username" required>
+            <input class="form-control" type="email" name="email" id="email" placeholder="E-mail" required>
             <input class="btn btn-primary" type="submit" value="Register">
           </div>
         </form>

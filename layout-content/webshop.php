@@ -2,7 +2,6 @@
 // Include connection and functions
 include("./php-scripts/connectDB.php");
 include("./php-scripts/functions.php");
-
 ?>
 
 <div class="container">

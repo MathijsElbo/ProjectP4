@@ -7,9 +7,7 @@ $password = sanitize($_POST["password"]);
 
 if (!empty($email) && !empty($password)) {
 
-  $sql = "SELECT * FROM `pro4_users` WHERE `email` = '$email'";
-
-  $result = mysqli_query($conn, $sql);
+  $result = getSpecificInfo('pro4_users', 'email', $email);
 
   if (mysqli_num_rows($result) ==  1) {
     // Email bestaat

@@ -32,17 +32,17 @@ function getInfo($tablename) {
   return $result;
 }
 
-// Get products
-function getSpecificInfo($id) {
+// Get product information
+function getSpecificInfo($tablename, $columnid, $id) {
   global $conn;
-  $sql = "SELECT * FROM `pro4_products` WHERE `productid` = '$id'";
+  $sql = "SELECT * FROM `$tablename` WHERE `$columnid` = '$id'";
 
   $result = mysqli_query($conn, $sql);
 
   return $result;
 }
 
-// Create product rows
+// Creates product rows
 function Product($productname, $productimage, $productdesc, $productprice, $productid) {
   $product = "
   <div class='row product'>
@@ -65,26 +65,28 @@ function Product($productname, $productimage, $productdesc, $productprice, $prod
   echo $product;
 }
 
-// Create cart rows
+// Creates cart rows
 function cartProduct($quantity, $id, $name, $price) {
   $totalprice = $quantity * $price;
 
   $product = "
   <div class='row cart'>
     <div class='col-3'>
+      <span class='product-name'>Product:</span>
       <a href=''><span class='product-name'>$name</span></a>
     </div>
-    <div class='col-9'>
-      <span class='product-price'>Prijs: € $price</span><br>
-      <span class='product-price'>Aantal: $quantity</span><br>
-      <span class='product-price'>Totaalprijs: € $totalprice</span>
+    <div class='col-5'>
+      <span>Prijs: € $price</span><br>
+      <span>Aantal: $quantity</span><br>
+      <span>Totaalprijs: € $totalprice</span>
     </div>
+    
   </div>";
 
   echo $product;
 }
 
-// Create Order
+// Creates Order
 function addOrder($id) {
   global $conn;
 
@@ -97,7 +99,7 @@ function addOrder($id) {
   return $orderid;
 }
 
-// Create orderlines
+// Creates orderlines
 function addOrderLine($orderid, $quantity, $id) {
   global $conn;
 
@@ -108,12 +110,34 @@ function addOrderLine($orderid, $quantity, $id) {
   return $result;
 }
 
-function checkCart() {
-  if (isset($_SESSION['cart'])) {
-    $cartArr = json_decode($_SESSION['cart'], true);
+// Checks cart
+function checkCart($cart) {
+  if (isset($cart)) {
+    $cartArr = json_decode($cart, true);
   } else {
     $cartArr = [];
   }
+
+  return $cartArr;
+}
+
+function addToCart($arr, $productid, $quantity) {
+  if (isset($arr[$productid])) {
+    $arr[$productid] = $arr[$productid] + $quantity;
+  } else {
+    $arr[$productid] = $quantity;
+  }
+
+  return $arr;
+}
+
+// json_encodes session cart
+function encodeCart($cartArr) {
+  if (isset($cartArr)) {
+    $cartArr = json_encode($cartArr, true);
+  }
+
+  return $cartArr;
 }
 
 ?>
