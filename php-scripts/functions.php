@@ -110,6 +110,32 @@ function addOrderLine($orderid, $quantity, $id) {
   return $result;
 }
 
+// Displays all orders on myaccount page
+function displayOrder($orderid, $orderstatusid, $userid) {
+  switch ($orderstatusid) {
+    case "1":
+      $orderstatus = "Wordt verwerkt";
+    break;
+    case "2":
+      $orderstatus = "Wordt ingepakt";
+    break;
+    case "3":
+      $orderstatus = "Wordt verzonden";
+    break;
+    case "4":
+      $orderstatus = "Bezorgd";
+    break;
+  }
+
+  $string = "<tr>
+  <td>$orderid</td>
+  <td>$orderstatus</td>
+  <td><a href=index.php?content=orderdetails&id=$orderid>Bestelling bekijken</a></td>
+  </tr>";
+
+  echo $string;
+}
+
 // Checks cart
 function checkCart($cart) {
   if (isset($cart)) {

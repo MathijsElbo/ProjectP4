@@ -18,7 +18,10 @@ if (isset($_SESSION["cart"])) {
 
     // Deletes cart
     unset($_SESSION['cart']);
-
+    if (!isset($_SESSION['cart'])) {
+      echo '<div class="alert alert-success" role="alert">Uw bestelling is geplaatst.</div>';
+      header("Refresh: 4; url=./index.php?content=myaccount#bestellingen");
+    }
 
   } else {
     $_SESSION["login"] = "shop";

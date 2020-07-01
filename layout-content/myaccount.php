@@ -125,9 +125,14 @@ $fullname = $pinfo["name"] . ' ' . $pinfo["infix"] . ' ' . $pinfo["lastname"];
             </tr>
           </thead>
           <tbody>
-            <tr>
-            <td>bestelling info hiero</td>  
-            </tr>
+            <?php
+            // Alle orders ophalen van deze userid
+            $result = getSpecificInfo('pro4_orders', 'userid', $id);
+            
+            while ($d = mysqli_fetch_assoc($result)) {
+              displayOrder($d["orderid"], $d["orderstatusid"], $d["userid"]);
+            }
+            ?>
           </tbody>
         </table>
       </div>
