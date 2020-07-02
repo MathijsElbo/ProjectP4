@@ -303,6 +303,7 @@ function editProduct($id) {
 
 }
 
+// Updates product details
 function updateProduct($id, $name, $image, $price, $btw, $desc) {
   global $conn;
 
@@ -313,6 +314,19 @@ function updateProduct($id, $name, $image, $price, $btw, $desc) {
                 `pbtw` = '$btw',
                 `pdesc` = '$desc'
           WHERE `productid` = '$id';";
+
+  $result = mysqli_query($conn, $sql);
+
+  return $result;
+}
+
+// Updates orderstatus
+function updateOrderstatus($orderid, $orderstatus) {
+  global $conn;
+
+  $sql = "UPDATE `pro4_orders`
+          SET     `orderstatusid` = '$orderstatus'
+          WHERE   `orderid` = '$orderid';";
 
   $result = mysqli_query($conn, $sql);
 
