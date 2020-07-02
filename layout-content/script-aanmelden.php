@@ -1,6 +1,4 @@
 <?php
-$userrole = [1,2,3,4];
-include("./php-scripts/security.php");
 include("./php-scripts/connectDB.php");
 include("./php-scripts/functions.php");
 
