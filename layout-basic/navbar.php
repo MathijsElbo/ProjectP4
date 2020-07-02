@@ -18,6 +18,8 @@
         <a href="index.php?content=overons">Over ons</a></li>
       <li class="<?php if ($content == 'contact') echo 'active' ?>">
         <a href="index.php?content=contact">Contact</a></li>
+        <li class="<?php if ($content == 'informatie') echo 'active' ?>">
+        <a href="index.php?content=informatie">Informatie</a></li>
     </ul>
   </div>
   <div class="nav-icons">
