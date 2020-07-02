@@ -34,6 +34,28 @@
                             </div>
                         </div>
                     </div>
+                    <br />
+                    <div class="row">
+                        <div class="card cardemp col-12">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="/assets/img/opmaak2.png" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">hoe kunt u bij ons bestellen?</h5>
+                                        <p class="card-text">simpele instructies over hoe u bij ons kunt bestellens</p>
+                                        <p class="card-text"><small class="text-muted">Bestellen bij Postershop.nl is een makkie!.
+                                                Als u bij ons wilt bestellen moet u eerst inloggen op u account (of er een aanmaken als u er nog geen heeft)
+                                                door op het "mijn account" icoontje te drukken wat rechts boven aanstaat.
+                                                hierna kunt u op de webshop pagina selecteren welke producten u wilt bestellen.
+                                                als u dit gedaan heeft kunt u controleren of u alles in u winkelwagen heeft zitten (zie het winkelwagen icoontje rechts boven in.)
+                                                Dan klikt u op de knop "ik wil bestellen" en u bestelling is geplaatst! </small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
